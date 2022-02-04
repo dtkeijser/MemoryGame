@@ -1,0 +1,37 @@
+<!--<div>-->
+<!--  <button (click)="createGame()">create</button>-->
+<!--</div>-->
+<div class="container w-50">
+
+  <form name="form" (ngSubmit)="form.valid && createGame()" #form="ngForm">
+    <div class="form-group">
+
+      <!-- DropDownList -->
+      <select class="custom-select" name="theme" [(ngModel)]="selectedTheme" #theme="ngModel"
+              [ngClass]="{ 'is-invalid': form.submitted && theme.invalid }" required>
+        <option value="" class="text-primary font-weight-bolder">
+          --- Select Product ---
+        </option>
+        <option *ngFor="let theme of themes" [value]="theme.value">
+          {{theme.viewValue}}
+        </option>
+      </select>
+
+      <!-- DropDownList -->
+      <select class="custom-select" name="numberofpairs" [(ngModel)]="selectedNumberOfPairs" #number="ngModel"
+              [ngClass]="{ 'is-invalid': form.submitted && number.invalid }" required>
+        <option value="" class="text-primary font-weight-bolder">
+          --- Select Product ---
+        </option>
+        <option *ngFor="let number of numberOfPairs" [value]="number.value">
+          {{number.viewValue}}
+        </option>
+      </select>
+      <!-- Required Validation Message -->
+      <div *ngIf="form.submitted && theme.invalid" class="text-danger">
+        <h6 *ngIf="theme.errors.required">Product is Required</h6>
+      </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>

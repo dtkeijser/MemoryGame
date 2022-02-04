@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+      <h1 *ngIf="game.localPlayer == game.currentPlayer">{{game.localPlayer.user.name}} &#x2190;</h1>
+      <h1 *ngIf="game.localPlayer != game.currentPlayer">{{game.localPlayer.user.name}} </h1>
+      <h1>Points: {{game.localPlayer.points}}</h1>
+        <div class="col-md-12">
+          <div *ngIf="game !== undefined">
+          <div class="grid p-16">
+            <div *ngFor="let c of game.cards ; let idx=index">
+              <div class="card" (click)="onClickCard(idx)" [@cardFlipped]="c.cardState">
+                <div class="face back">
+                  <img src="../../../assets/cards/card-back/card-back.jpg">
+                </div>
+                <div class="face front">
+                  <img [src]="'/assets/cards/card-front/'+ game.theme.toLowerCase() + '/' + c.imageUrl ">
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+          <h1 *ngIf="game.localPlayer == game.currentPlayer">{{game.getOpponent().user.name}}</h1>
+          <h1 *ngIf="game.localPlayer != game.currentPlayer">{{game.getOpponent().user.name}} &#x2190;</h1>
+          <h1>Points : {{game.getOpponent().points}}</h1>
+      </div>
+    </div>
+  </div>
+
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-10">-->
+<!--      <div class="col-md-12">-->
+<!--        <div *ngIf="(testGame$ | async) as game">-->
+<!--          <div class="grid p-16">-->
+<!--            <div *ngFor="let c of game.cards ; let idx=index">-->
+<!--              <div class="card" (click)="flipCard( idx)" [@cardFlipped]="c.cardState">-->
+<!--                <div class="face back">-->
+<!--                  <img src="../../../assets/cards/card-back/card-back.jpg">-->
+<!--                </div>-->
+<!--                <div class="face front">-->
+<!--                  <img [src]="'/assets/cards/card-front/'+ game.theme + '/' + c.imageUrl ">-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-1">-->
+<!--    </div>-->
+<!--    <div class="col-md-10">-->
+<!--      <div class="p-16">-->
+
+<!--        <div class="col-md-12">-->
+<!--          <div class="grid p-16">-->
+<!--            <div *ngIf="(game$ | async) as game">-->
+<!--              -->
+<!--            <app-game-card *ngFor="let c of game$.c; let idx=index" [card]="c" (cardClicked)="cardClicked(idx)">-->
+<!--            </app-game-card>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash;        <div *ngFor="let c of gameSetupService.cards"> {{c| json}}</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-1">-->
+<!--      <div>{{game.matchedCount}}: cards matched</div>-->
+<!--      <div *ngFor="let cards of game.flippedCardLocations; let i=index">{{cards}} {{cards[i]}}cardlocation flipped this turn </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;    <div *ngFor="let c of game._cards"> {{game._cards| json}}</div>&ndash;&gt;-->
+<!--  </div>-->
+<!--</div>-->
+

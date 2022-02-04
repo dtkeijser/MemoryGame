@@ -1,0 +1,22 @@
+.container-fluid {
+  background-color: darkblue;
+  height: 100%;
+}
+
+h1{
+  font-size: 48px;
+  color: #caf3ed;;
+}
+
+.col-6{
+  color: #caf3ed;
+}
+
+#leftImage{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#rightimage{
+  float: right;
+}

@@ -1,0 +1,38 @@
+<table>
+  <thead>
+  <tr>
+    <th>Game Creator</th>
+    <th>Theme</th>
+    <th>Number of Pairs</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let gameSummary of pendingGameSummaries | async">
+    <td>{{gameSummary.gameCreator}}</td>
+    <td>{{gameSummary.theme}}</td>
+    <td>{{gameSummary.numberOfPairs}}</td>
+    <button (click)=onClickJoinButton(gameSummary.id)>Join</button>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>Game Creator</th>
+      <th>Theme</th>
+      <th>Number of Pairs</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let gameSummary of ownGameSummaries | async">
+      <td>{{gameSummary.gameCreator}}</td>
+      <td>{{gameSummary.theme}}</td>
+      <td>{{gameSummary.numberOfPairs}}</td>
+      <td>{{gameSummary.gameState}}</td>
+      <button (click)=onClickRejoinButton(gameSummary.id)>Join</button>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

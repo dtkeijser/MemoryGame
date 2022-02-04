@@ -1,0 +1,11 @@
+<div class="info-page-container">
+  <div class="intro-card">
+    <div class="card-body">
+     <h1>Here the main page will be shown</h1>
+      <input id="sessionName" type="text" value="session name" #sessionTextField>
+      <button (click)="sessionService.setUsernameForSession(sessionTextField.value)">Save session name </button>
+      <button (click)="onClickCreateTestGame()">create test game as DTK</button>
+      <button (click)="onClickRejoinGameAsDaniel()">rejoin Game as Daniel</button>
+    </div>
+  </div>
+</div>
